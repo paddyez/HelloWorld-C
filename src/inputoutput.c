@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <main.h>
 
-void printHelloWorld(void) {
+void print_hello_world(void) {
 	printf("Hello, world\n");
 	return;
 }
