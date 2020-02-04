@@ -10,7 +10,7 @@ LIBS=-lm
 _DEPS = main.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o inputoutput.o 
+_OBJ = main.o inputoutput.o temperature.o fahrenheit.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 

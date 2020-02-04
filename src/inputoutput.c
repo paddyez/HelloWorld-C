@@ -1,8 +1,11 @@
 #include <stdio.h>
-#include <main.h>
 
 void print_hello_world(void) {
 	printf("Hello, world\n");
 	return;
 }
 
+void print_table_line(float initial, float converted) {
+	printf("%6.2f\t%6.2f\n", initial, converted);
+	return;
+}
