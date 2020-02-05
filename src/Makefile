@@ -19,10 +19,8 @@ DEPS=$(patsubst %,$(INCDIR)/%,$(_DEPS))
 _OBJ=celsius.o fahrenheit.o inputoutput.o main.o temperature.o
 OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
 
-
 $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
-	
 
 default: clang-tidy cppcheck.xml main
 .PHONY: default clean
