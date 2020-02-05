@@ -8,11 +8,10 @@ float fahrenheit_to_celsius(float fahrenheit) {
 
 void create_fahrenheit_conversion_table(float start, float end, float increment) {
 	float current = start;
-	float celsius;
 	printf("----\n");
 	printf("°F\t|\t°C\n");
 	while(current <= end) {
-		celsius = fahrenheit_to_celsius(current);
+		float celsius = fahrenheit_to_celsius(current);
 		print_table_line(current, celsius);
 		current += increment;
 	}
