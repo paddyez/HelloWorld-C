@@ -1,7 +1,7 @@
 #include <fahrenheit.h>
 
 float celsius_to_fahrenheit(float celsius) {
-	float fahrenheit = (celsius * NINE_FIFTHS) + (float)THIRTY_TWO;
+	float fahrenheit = (celsius * NINE_FIFTHS) + THIRTY_TWO;
 	return fahrenheit;
 }
 

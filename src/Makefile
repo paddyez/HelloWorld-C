@@ -7,7 +7,7 @@ LDIR =../lib
 
 LIBS=-lm
 
-_DEPS = main.h
+_DEPS = main.h fahrenheit.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = main.o inputoutput.o temperature.o fahrenheit.o
