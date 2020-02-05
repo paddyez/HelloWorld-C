@@ -1,26 +1,34 @@
-IDIR =../include
+INCDIR =../include
 CC=clang
-CFLAGS=-Wall -Wconversion -Wextra -pedantic -I$(IDIR)
+CFLAGS=-Wall -Wconversion -Wextra -pedantic -I$(INCDIR)
+SOURCES=celsius.c fahrenheit.c inputoutput.c main.c temperature.c
+CPPCHECK=cppcheck
+CHECKFLAGS=--language=c --enable=warning,style --template=clang -q --error-exitcode=1 --xml
 
 ODIR=obj
 LDIR =../lib
 
 LIBS=-lm
 
-_DEPS = main.h temperature.h celsius.h fahrenheit.h
-DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+_DEPS=celsius.h fahrenheit.h main.h temperature.h
+DEPS=$(patsubst %,$(INCDIR)/%,$(_DEPS))
 
-_OBJ = main.o inputoutput.o temperature.o celsius.o fahrenheit.o
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+_OBJ=celsius.o fahrenheit.o inputoutput.o main.o temperature.o
+OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
 $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
+	
+
+default: check.xml main
+.PHONY: default clean
 
 main: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-
-.PHONY: clean
+	
+check.xml: $(SOURCES)
+	$(CPPCHECK) $(CHECKFLAGS) $^ >$@
 
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
+	rm -f $(ODIR)/*.o *~ main check.xml $(INCDIR)/*~
