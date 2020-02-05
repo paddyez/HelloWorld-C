@@ -2,8 +2,11 @@ INCDIR =../include
 CC=clang
 CFLAGS=-Wall -Wconversion -Wextra -pedantic -I$(INCDIR)
 SOURCES=celsius.c fahrenheit.c inputoutput.c main.c temperature.c
+CLANG-TIDY=clang-tidy
+CLANG-TIDYFLAGS=-checks='*' -- -I$(INCDIR)
 CPPCHECK=cppcheck
 CHECKFLAGS=--language=c --enable=warning,style --template=clang -q --error-exitcode=1 --xml
+
 
 ODIR=obj
 LDIR =../lib
@@ -21,14 +24,17 @@ $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 	
 
-default: check.xml main
+default: cppcheck.xml clang-tidy main
 .PHONY: default clean
 
 main: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 	
-check.xml: $(SOURCES)
-	$(CPPCHECK) $(CHECKFLAGS) $^ 2>$@
+cppcheck.xml: $(SOURCES)
+	$(CPPCHECK) $^ $(CHECKFLAGS) 2>$@
+
+clang-tidy: $(SOURCES)
+	$(CLANG-TIDY) $^ $(CLANG-TIDYFLAGS)
 
 clean:
-	rm -f $(ODIR)/*.o *~ main check.xml $(INCDIR)/*~
+	rm -f $(ODIR)/*.o *~ main cppcheck.xml $(INCDIR)/*~

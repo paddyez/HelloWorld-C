@@ -3,7 +3,7 @@
 
 const float NINE_FIFTHS;
 const float FIVE_NINETHS;
-const int THIRTY_TWO;
+const float THIRTY_TWO;
 
 void print_table_line(float initial, float converted);
 

@@ -1,7 +1,7 @@
 #include <errno.h>
+#include <main.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <main.h>
 
 int main(int argc, char *argv[]) {
 	if (argc != 4) {
@@ -12,7 +12,9 @@ int main(int argc, char *argv[]) {
 	print_hello_world();
 	*/
 	errno = 0;
-	char *endptrstart, *endptrstop, *endptrincrement;
+	char *endptrstart;
+	char *endptrstop;
+	char *endptrincrement;
 	float start = strtof(argv[1], &endptrstart);
 	float stop = strtof(argv[2], &endptrstop);
 	float increment = strtof(argv[3], &endptrincrement);
