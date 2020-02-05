@@ -28,7 +28,7 @@ main: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 	
 check.xml: $(SOURCES)
-	$(CPPCHECK) $(CHECKFLAGS) $^ >$@
+	$(CPPCHECK) $(CHECKFLAGS) $^ 2>$@
 
 clean:
 	rm -f $(ODIR)/*.o *~ main check.xml $(INCDIR)/*~
