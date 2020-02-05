@@ -24,17 +24,17 @@ $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 	
 
-default: cppcheck.xml clang-tidy main
+default: clang-tidy cppcheck.xml main
 .PHONY: default clean
 
 main: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-	
-cppcheck.xml: $(SOURCES)
-	$(CPPCHECK) $^ $(CHECKFLAGS) 2>$@
 
 clang-tidy: $(SOURCES)
 	$(CLANG-TIDY) $^ $(CLANG-TIDYFLAGS)
+
+cppcheck.xml: $(SOURCES)
+	$(CPPCHECK) $^ $(CHECKFLAGS) 2>$@
 
 clean:
 	rm -f $(ODIR)/*.o *~ main cppcheck.xml $(INCDIR)/*~
