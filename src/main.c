@@ -1,5 +1,8 @@
+#include "celsius.h"
+#include "fahrenheit.h"
+#include "inputoutput.h"
+#include "main.h"
 #include <errno.h>
-#include <main.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,9 +11,7 @@ int main(int argc, char *argv[]) {
 		fprintf(stderr, "usage: %s <start> <stop> <increment>\n", argv[0]);
   		exit(0);
 	}
-	/*
 	print_hello_world();
-	*/
 	errno = 0;
 	char *endptrstart;
 	char *endptrstop;

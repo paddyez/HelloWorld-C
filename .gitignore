@@ -1,5 +1,9 @@
 .cproject
 .project
 .settings/
-/src/main
+/cprogramming
 *.o
+/CMakeCache.txt
+/CMakeFiles
+/cmake_install.cmake
+/Makefile

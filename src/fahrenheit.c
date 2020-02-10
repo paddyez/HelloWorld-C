@@ -1,5 +1,7 @@
+#include "fahrenheit.h"
+#include "inputoutput.h"
+#include "temperature.h"
 #include <stdio.h>
-#include <temperature.h>
 
 float celsius_to_fahrenheit(float celsius) {
 	float fahrenheit = (celsius * NINE_FIFTHS) + THIRTY_TWO;
