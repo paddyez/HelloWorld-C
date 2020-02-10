@@ -5,5 +5,5 @@ void print_hello_world(void) {
 }
 
 void print_table_line(float initial, float converted) {
-	printf("%6.2f\t|\t%6.4f\n", initial, converted);
+	printf("%6.2f\t| %6.4f\n", initial, converted);
 }

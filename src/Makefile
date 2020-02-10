@@ -7,7 +7,6 @@ CLANG-TIDYFLAGS=-checks='*' -- -I$(INCDIR)
 CPPCHECK=cppcheck
 CHECKFLAGS=--language=c --enable=warning,style --template=clang -q --error-exitcode=1 --xml
 
-
 ODIR=obj
 LDIR =../lib
 

@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 	} else if (increment <= 0) {
 		error("increment must be greater than 0");
 	} else {
-		printf("start: %6.2f\tstop: \t%6.2f\tincrement: \t%6.2f\n", start, stop, increment);
+		printf("start: %6.2f\tstop: %6.2f\tincrement: %6.2f\n", start, stop, increment);
 		create_celsius_conversion_table(start, stop, increment);
 		create_fahrenheit_conversion_table(start, stop, increment);
 	}
